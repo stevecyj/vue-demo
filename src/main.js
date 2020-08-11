@@ -12,6 +12,8 @@ import router from './router';
 Vue.config.productionTip = false;
 // 元件，全域註冊
 Vue.component('Loading', Loading);
+
+// 套件加入到 Vue 的藍圖(原型)內
 Vue.use(VueAxios, axios);
 
 new Vue({

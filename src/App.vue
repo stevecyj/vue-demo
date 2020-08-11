@@ -1,12 +1,35 @@
 <template>
   <div id="app">
+    <loading :active.sync="isLoading"></loading>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
+  mounted() {
+    // this.isLoading = true;
+    // setTimeout(() => {
+    //   this.isLoading = false;
+    // }, 3000);
+    this.isLoading = true;
+    console.log(process.env.VUE_APP_APIPATH);
+    this.$http.get(`${process.env.VUE_APP_APIPATH}`).then((res) => {
+      this.isLoading = false;
+      console.log(res);
+    });
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
