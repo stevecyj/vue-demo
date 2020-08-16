@@ -23,12 +23,12 @@ export default {
     // setTimeout(() => {
     //   this.isLoading = false;
     // }, 3000);
-    this.isLoading = true;
-    console.log(process.env.VUE_APP_APIPATH);
-    this.$http.get(`${process.env.VUE_APP_APIPATH}`).then((res) => {
-      this.isLoading = false;
-      console.log(res);
-    });
+    // this.isLoading = true;
+    // console.log(process.env.VUE_APP_APIPATH);
+    // this.$http.get(`${process.env.VUE_APP_APIPATH}`).then((res) => {
+    //   this.isLoading = false;
+    //   console.log(res);
+    // });
   },
 };
 </script>
