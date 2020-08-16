@@ -42,6 +42,14 @@ max_line_length = 100
 
 ```
 
+### eslint → package.json → rules
+
+```
+"rules": {
+      "no-console": "off"
+    }
+```
+
 ## Project setup
 
 ```
