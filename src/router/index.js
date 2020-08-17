@@ -23,6 +23,11 @@ const routes = [
     component: () => import(/* webpackChunkName: */ '../views/Products.vue'),
   },
   {
+    // 動態路由
+    path: '/product/:id',
+    component: () => import(/* webpackChunkName: */ '../views/Product.vue'),
+  },
+  {
     path: '/cart',
     component: () => import(/* webpackChunkName: */ '../views/Cart.vue'),
   },

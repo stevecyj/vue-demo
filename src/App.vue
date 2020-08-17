@@ -7,6 +7,7 @@
       <router-link to="/cart">購物車</router-link> |
       <router-link to="/admin/products">後台產品列表</router-link>
     </div>
+    <hr />
     <router-view />
   </div>
 </template>
