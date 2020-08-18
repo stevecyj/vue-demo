@@ -17,6 +17,7 @@ export default {
     // 屬性 $route
     // 方法 $router
     // console.log(this.$route.params.id);
+    console.log(this.$router);
     // airbnb 要求用解構的方式
     const { id } = this.$route.params;
     this.$http

@@ -6,6 +6,11 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: '*',
+    redirect: '/',
+    component: Home,
+  },
+  {
     path: '/',
     name: 'Home',
     component: Home,
@@ -20,28 +25,32 @@ const routes = [
   },
   {
     path: '/products',
-    component: () => import(/* webpackChunkName: */ '../views/Products.vue'),
+    component: () => import('../views/Products.vue'),
   },
   {
     // 動態路由
     path: '/product/:id',
-    component: () => import(/* webpackChunkName: */ '../views/Product.vue'),
+    component: () => import('../views/Product.vue'),
+  },
+  {
+    path: '/login',
+    component: () => import('../views/Login.vue'),
   },
   {
     path: '/cart',
-    component: () => import(/* webpackChunkName: */ '../views/Cart.vue'),
+    component: () => import('../views/Cart.vue'),
   },
   {
     path: '/admin',
-    component: () => import(/* webpackChunkName: */ '../views/dashboard/Dashboard.vue'),
+    component: () => import('../views/dashboard/Dashboard.vue'),
     children: [
       {
         path: 'products',
-        component: () => import(/* webpackChunkName: */ '../views/dashboard/Products.vue'),
+        component: () => import('../views/dashboard/Products.vue'),
       },
       {
         path: 'coupons',
-        component: () => import(/* webpackChunkName: */ '../views/dashboard/Coupons.vue'),
+        component: () => import('../views/dashboard/Coupons.vue'),
       },
     ],
   },
