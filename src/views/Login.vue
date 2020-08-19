@@ -68,6 +68,8 @@ export default {
           // 寫入 cookie token
           // expires 設置有效時間
           document.cookie = `hexToken=${token};expires=${new Date(expired * 1000)};`;
+          // $route
+          // $router
           this.$router.push('/admin/products');
         })
         .catch((error) => {
