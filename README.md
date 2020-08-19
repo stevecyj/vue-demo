@@ -12,6 +12,10 @@
 
 - [vue-axios](https://www.npmjs.com/package/vue-axios)
 
+### bootstrap
+
+-[bootstrap](https://www.npmjs.com/package/bootstrap)
+
 ## 開發環境設定
 
 ### .editorconfig
