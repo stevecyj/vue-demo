@@ -44,6 +44,56 @@
     </form>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Login',
+  data() {
+    return {
+      user: {
+        email: '',
+        password: '',
+      },
+      token: '',
+    };
+  },
+  methods: {
+    signin() {
+      const api = `${process.env.VUE_APP_APIPATH}api/auth/login`;
+      this.$http
+        .post(api, this.user)
+        .then((response) => {
+          const { token } = response.data;
+          const { expired } = response.data;
+          // 寫入 cookie token
+          // expires 設置有效時間
+          document.cookie = `hexToken=${token};expires=${new Date(expired * 1000)};`;
+          this.$router.push('/admin/products');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    signout() {
+      document.cookie = 'hexToken=;expires=;';
+      console.log('token 已清除');
+    },
+    getData() {
+      // 取得 token 的 cookies（注意取得的時間點）
+      // 詳情請見：https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie
+      this.token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+      // API
+      const api = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/products`;
+      this.$http.defaults.headers.common.Authorization = `Bearer ${this.token}`;
+      this.$http.get(api).then((response) => {
+        this.products = response.data.data;
+        this.pagination = response.data.meta.pagination;
+      });
+    },
+  },
+};
+</script>
+
 <style lang="scss">
 html,
 body {
@@ -56,7 +106,8 @@ body {
 form {
   width: 300px;
   padding: 30px 20px;
-  margin-top: 25%;
+  // margin-top: 25%;
+  margin: 25% auto;
   text-align: center;
   color: #343a40;
   border-radius: 6px;

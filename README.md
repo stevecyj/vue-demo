@@ -16,6 +16,10 @@
 
 - [bootstrap](https://www.npmjs.com/package/bootstrap)
 
+```
+npm install bootstrap jquery popper.js --save
+```
+
 ## 開發環境設定
 
 ### .editorconfig
