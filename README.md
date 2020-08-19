@@ -14,7 +14,7 @@
 
 ### bootstrap
 
--[bootstrap](https://www.npmjs.com/package/bootstrap)
+- [bootstrap](https://www.npmjs.com/package/bootstrap)
 
 ## 開發環境設定
 
@@ -28,7 +28,6 @@ end_of_line = lf
 trim_trailing_whitespace = true
 insert_final_newline = true
 max_line_length = 100
-
 ```
 
 ### .prettierrc
@@ -43,7 +42,17 @@ max_line_length = 100
   "bracketSpacing": true,
   "arrowParens": "always"
 }
+```
 
+### .gitattributes (CRLF to LF)
+
+```
+text=lf
+ *.css linguist-vendored eol=lf
+ *.scss linguist-vendored eol=lf
+ *.js linguist-vendored eol=lf
+ *.php eol=lf
+ CHANGELOG.md export-ignore
 ```
 
 ### eslint → package.json → rules
