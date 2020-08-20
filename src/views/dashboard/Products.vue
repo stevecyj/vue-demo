@@ -25,6 +25,7 @@ export default {
     this.token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
     this.$http.defaults.headers.common.Authorization = `Bearer ${this.token}`;
 
+    // 後台管理 api
     const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/products`;
     this.$http.get(url).then((res) => {
       console.log(res);
